@@ -1,0 +1,971 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     40448,        963]
+NotebookOptionsPosition[     38323,        920]
+NotebookOutlinePosition[     38757,        937]
+CellTagsIndexPosition[     38714,        934]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+The effect of different parameters on individual repertoire size\
+\>", "Subsection",
+ CellChangeTimes->{{3.927740849202732*^9, 
+  3.927740860640236*^9}},ExpressionUUID->"207f9522-658a-2e41-8489-\
+62c1d8b12c29"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", "traitAbundDist", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"traitAbundDist", "[", 
+   RowBox[{
+   "l_", ",", "t_", ",", "nt_", ",", "nc_", ",", "b0_", ",", "r_", ",", 
+    "ni_"}], "]"}], ":=", " ", 
+  RowBox[{
+   RowBox[{"traitAbundDist", "[", 
+    RowBox[{
+    "l", ",", "t", ",", "nt", ",", "nc", ",", "b0", ",", "r", ",", "ni"}], 
+    "]"}], " ", "=", "\n", 
+   RowBox[{"-", 
+    FractionBox[
+     RowBox[{"b0", " ", "nc", " ", 
+      SuperscriptBox["nt", "2"], " ", 
+      SuperscriptBox["r", "2"], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{"l", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "1"}], "+", "nc"}], ")"}], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "b0"}], "+", "t"}], ")"}]}], 
+         RowBox[{"nc", " ", "nt", " ", 
+          SuperscriptBox["r", "2"], " ", "t"}]], ")"}], "ni"], " ", 
+      RowBox[{"Pochhammer", "[", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"2", "-", 
+          RowBox[{"2", " ", "nc"}], "+", 
+          RowBox[{"nt", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "1"}], "+", 
+             FractionBox[
+              SqrtBox[
+               RowBox[{"b0", "+", 
+                RowBox[{"4", " ", "b0", " ", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"-", "1"}], "+", "nc"}], ")"}], " ", "nc", " ", 
+                 SuperscriptBox["r", "2"]}], "-", "t"}]], 
+              SqrtBox[
+               RowBox[{"b0", "-", "t"}]]]}], ")"}]}]}], 
+         RowBox[{"2", "-", 
+          RowBox[{"2", " ", "nc"}]}]], ",", 
+        RowBox[{
+         RowBox[{"-", "1"}], "+", "ni"}]}], "]"}], " ", 
+      RowBox[{"Pochhammer", "[", 
+       RowBox[{
+        FractionBox[
+         RowBox[{
+          RowBox[{"-", "2"}], "+", 
+          RowBox[{"2", " ", "nc"}], "+", "nt", "+", 
+          FractionBox[
+           RowBox[{"nt", " ", 
+            SqrtBox[
+             RowBox[{"b0", "+", 
+              RowBox[{"4", " ", "b0", " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", "nc"}], ")"}], " ", "nc", " ", 
+               SuperscriptBox["r", "2"]}], "-", "t"}]]}], 
+           SqrtBox[
+            RowBox[{"b0", "-", "t"}]]]}], 
+         RowBox[{"2", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "1"}], "+", "nc"}], ")"}]}]], ",", 
+        RowBox[{
+         RowBox[{"-", "1"}], "+", "ni"}]}], "]"}]}], 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", "nc"}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{"b0", "-", "t"}], ")"}], " ", 
+      RowBox[{"Gamma", "[", 
+       RowBox[{"1", "+", "ni"}], "]"}]}]]}]}]}]}], "Input",
+ FontWeight->"Plain",ExpressionUUID->"7a90bf1d-6c1b-3b49-89cb-73e7de0c821d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Plot", "[", "\n", 
+     RowBox[{
+      RowBox[{"Sum", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"traitAbundDist", "[", 
+             RowBox[{
+             "l", ",", "t", ",", "nt", ",", "nc", ",", "b0", ",", "r", ",", 
+              "ni"}], "]"}], "/", " ", 
+            RowBox[{"Sum", "[", 
+             RowBox[{
+              RowBox[{"traitAbundDist", "[", 
+               RowBox[{
+               "l", ",", "t", ",", "nt", ",", "nc", ",", "b0", ",", "r", ",", 
+                "ni"}], "]"}], " ", ",", 
+              RowBox[{"{", 
+               RowBox[{"ni", ",", "0", ",", "nt"}], "}"}]}], "]"}]}], " ", 
+           ")"}], " ", 
+          RowBox[{"(", 
+           RowBox[{"1", "-", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{"1", "-", 
+               FractionBox[
+                RowBox[{"ni", " ", 
+                 RowBox[{"(", 
+                  RowBox[{"1", "+", 
+                   FractionBox[
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "+", "nc"}], ")"}], " ", "ni"}], 
+                    "nt"]}], ")"}]}], 
+                RowBox[{"nc", " ", "nt", " ", 
+                 SuperscriptBox["r", "2"]}]]}], ")"}], "l"]}], ")"}], "  ", 
+          "t"}], " ", "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"ni", ",", "0", ",", "nt"}], "}"}]}], "]"}], ",", "\n", 
+      RowBox[{"{", 
+       RowBox[{"l", ",", "1", ",", "50"}], "}"}], ",", " ", 
+      RowBox[{"PlotRange", "\[Rule]", " ", "Full"}], ",", " ", 
+      RowBox[{"AxesLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<learning events (l)\>\"", ",", 
+         "\"\<(average social repertoire(rs))\>\""}], "}"}]}]}], "]"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{"t", ",", "100"}], "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"nt", ",", "50"}], "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"r", ",", "7"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"b0", ",", "0.001"}], "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"nc", ",", "5"}], "}"}]}], "\[IndentingNewLine]", "]"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "this", " ", "sounds", " ", "like", " ", "an", " ", "unrealistic", " ", 
+    RowBox[{"result", "?", " ", "could"}], " ", "be", " ", "because", " ", 
+    "of", " ", "the", " ", "assumption", " ", "about", " ", "l"}], 
+   "*)"}]}]], "Input",
+ CellChangeTimes->{{3.92773860235664*^9, 3.927738665323595*^9}, {
+  3.927738820859087*^9, 3.9277388403991337`*^9}, {3.9277389691380653`*^9, 
+  3.9277389957192936`*^9}},ExpressionUUID->"2aa97670-3db7-184f-9476-\
+092a163e58c9"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`b0$$ = 0.001, $CellContext`nc$$ = 
+    5, $CellContext`nt$$ = 50, $CellContext`r$$ = 7, $CellContext`t$$ = 100, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`t$$], 100, ControlType -> InputField}, {
+      Hold[$CellContext`nt$$], 50, ControlType -> InputField}, {
+      Hold[$CellContext`r$$], 7, ControlType -> InputField}, {
+      Hold[$CellContext`b0$$], 0.001, ControlType -> InputField}, {
+      Hold[$CellContext`nc$$], 5, ControlType -> InputField}}, 
+    Typeset`size$$ = {288., {63., 66.08551118331337}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`b0$$ = 0.001, $CellContext`nc$$ = 
+        5, $CellContext`nt$$ = 50, $CellContext`r$$ = 7, $CellContext`t$$ = 
+        100}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[
+        Sum[{($CellContext`traitAbundDist[$CellContext`l, $CellContext`t$$, \
+$CellContext`nt$$, $CellContext`nc$$, $CellContext`b0$$, $CellContext`r$$, \
+$CellContext`ni]/Sum[
+            $CellContext`traitAbundDist[$CellContext`l, $CellContext`t$$, \
+$CellContext`nt$$, $CellContext`nc$$, $CellContext`b0$$, $CellContext`r$$, \
+$CellContext`ni], {$CellContext`ni, 0, $CellContext`nt$$}]) (
+           1 - (1 - $CellContext`ni (
+             1 + (-1 + $CellContext`nc$$) \
+$CellContext`ni/$CellContext`nt$$)/($CellContext`nc$$ $CellContext`nt$$ \
+$CellContext`r$$^2))^$CellContext`l) $CellContext`t$$}, {$CellContext`ni, 
+          0, $CellContext`nt$$}], {$CellContext`l, 1, 50}, PlotRange -> Full, 
+        AxesLabel -> {
+         "learning events (l)", "(average social repertoire(rs))"}], 
+      "Specifications" :> {{$CellContext`t$$, 100}, {$CellContext`nt$$, 
+         50}, {$CellContext`r$$, 7}, {$CellContext`b0$$, 
+         0.001}, {$CellContext`nc$$, 5}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{843., {85.88359375, 90.11640625}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.927738697753834*^9, {3.9277388214995193`*^9, 3.92773884143898*^9}},
+ CellLabel->
+  "Out[163]=",ExpressionUUID->"7bee8d1e-d851-f748-8872-8bc251aef1b2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Manipulate", "[", 
+   RowBox[{
+    RowBox[{"Plot", "[", "\n", 
+     RowBox[{
+      RowBox[{"Sum", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", " ", 
+          RowBox[{
+           RowBox[{"traitAbundDist", " ", "[", 
+            RowBox[{
+            "l", ",", "t", ",", "nt", ",", "nc", ",", "b0", ",", "r", ",", 
+             "ni"}], "]"}], "/", " ", 
+           RowBox[{"Sum", "[", " ", 
+            RowBox[{
+             RowBox[{"traitAbundDist", " ", "[", 
+              RowBox[{
+              "l", ",", "t", ",", "nt", ",", "nc", ",", "b0", ",", "r", ",", 
+               "ni"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"ni", ",", "0", ",", "nt"}], "}"}]}], "]"}]}], ")"}], 
+         " ", 
+         RowBox[{"(", 
+          RowBox[{"1", "-", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"1", "-", 
+              FractionBox[
+               RowBox[{"ni", " ", 
+                RowBox[{"(", 
+                 RowBox[{"1", "+", 
+                  FractionBox[
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "+", "nc"}], ")"}], " ", "ni"}], 
+                   "nt"]}], ")"}]}], 
+               RowBox[{"nc", " ", "nt", " ", 
+                SuperscriptBox["r", "2"]}]]}], ")"}], "l"]}], ")"}], "  ", 
+         "t"}], " ", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"ni", ",", "0", ",", "nt"}], "}"}]}], "]"}], "\n", ",", 
+      RowBox[{"{", 
+       RowBox[{"t", ",", "1", ",", "1000"}], "}"}], ",", " ", 
+      RowBox[{"PlotRange", "\[Rule]", " ", "Full"}], ",", " ", 
+      RowBox[{"AxesLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<number of traits (t)\>\"", ",", 
+         "\"\<(average social repertoire(rs))\>\""}], "}"}]}]}], "]"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{"l", ",", "100"}], "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"nt", ",", "50"}], "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"r", ",", "7"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"b0", ",", "0.001"}], "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"nc", ",", "5"}], "}"}]}], "\[IndentingNewLine]", "]"}], 
+  "\n"}]], "Input",
+ CellChangeTimes->{{3.926751501549988*^9, 3.926751501721805*^9}, {
+  3.926778730964407*^9, 3.926778731111782*^9}, {3.926778765357731*^9, 
+  3.9267787834292374`*^9}, {3.92677883341377*^9, 3.926778889411764*^9}, {
+  3.9267791619352913`*^9, 3.9267791666518493`*^9}, {3.926780274478411*^9, 
+  3.926780277808647*^9}, {3.9277306159479084`*^9, 3.9277306525312634`*^9}, {
+  3.927738726156904*^9, 3.9277388054660797`*^9}},
+ CellLabel->
+  "In[159]:=",ExpressionUUID->"028bf3b4-7b6e-427c-a7d6-f1ef27aa6e32"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`b0$$ = 0.001, $CellContext`l$$ = 
+    100, $CellContext`nc$$ = 5, $CellContext`nt$$ = 50, $CellContext`r$$ = 7, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`l$$], 100, ControlType -> InputField}, {
+      Hold[$CellContext`nt$$], 50, ControlType -> InputField}, {
+      Hold[$CellContext`r$$], 7, ControlType -> InputField}, {
+      Hold[$CellContext`b0$$], 0.001, ControlType -> InputField}, {
+      Hold[$CellContext`nc$$], 5, ControlType -> InputField}}, 
+    Typeset`size$$ = {251.99999999999997`, {56., 58.15610491889623}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`b0$$ = 0.001, $CellContext`l$$ = 
+        100, $CellContext`nc$$ = 5, $CellContext`nt$$ = 50, $CellContext`r$$ = 
+        7}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[
+        Sum[($CellContext`traitAbundDist[$CellContext`l$$, $CellContext`t, \
+$CellContext`nt$$, $CellContext`nc$$, $CellContext`b0$$, $CellContext`r$$, \
+$CellContext`ni]/Sum[
+           $CellContext`traitAbundDist[$CellContext`l$$, $CellContext`t, \
+$CellContext`nt$$, $CellContext`nc$$, $CellContext`b0$$, $CellContext`r$$, \
+$CellContext`ni], {$CellContext`ni, 0, $CellContext`nt$$}]) (
+          1 - (1 - $CellContext`ni (
+            1 + (-1 + $CellContext`nc$$) \
+$CellContext`ni/$CellContext`nt$$)/($CellContext`nc$$ $CellContext`nt$$ \
+$CellContext`r$$^2))^$CellContext`l$$) $CellContext`t, {$CellContext`ni, 
+          0, $CellContext`nt$$}], {$CellContext`t, 1, 1000}, PlotRange -> 
+        Full, AxesLabel -> {
+         "number of traits (t)", "(average social repertoire(rs))"}], 
+      "Specifications" :> {{$CellContext`l$$, 100}, {$CellContext`nt$$, 
+         50}, {$CellContext`r$$, 7}, {$CellContext`b0$$, 
+         0.001}, {$CellContext`nc$$, 5}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{843., {78.88359375, 83.11640625}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.926780350004883*^9, 3.926780443177204*^9, 3.92773060130357*^9, 
+   3.9277306465154343`*^9, 3.927730795526022*^9, {3.927738752597084*^9, 
+   3.9277388062629566`*^9}},
+ CellLabel->
+  "Out[159]=",ExpressionUUID->"e93fd988-9b45-7a49-9cbb-490655fbe535"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", " ", 
+  RowBox[{"(*", 
+   RowBox[{"very", " ", "weird", " ", "result"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"DiscretePlot", "[", "\n", 
+    RowBox[{
+     RowBox[{"Sum", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", " ", 
+         RowBox[{
+          RowBox[{"traitAbundDist", " ", "[", 
+           RowBox[{
+           "l", ",", "t", ",", "nt", ",", "nc", ",", "b0", ",", "r", ",", 
+            "ni"}], "]"}], "/", " ", 
+          RowBox[{"Sum", "[", " ", 
+           RowBox[{
+            RowBox[{"traitAbundDist", " ", "[", 
+             RowBox[{
+             "l", ",", "t", ",", "nt", ",", "nc", ",", "b0", ",", "r", ",", 
+              "ni"}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"ni", ",", "0", ",", "nt"}], "}"}]}], "]"}]}], ")"}], 
+        " ", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"1", "-", 
+             FractionBox[
+              RowBox[{"ni", " ", 
+               RowBox[{"(", 
+                RowBox[{"1", "+", 
+                 FractionBox[
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "+", "nc"}], ")"}], " ", "ni"}], 
+                  "nt"]}], ")"}]}], 
+              RowBox[{"nc", " ", "nt", " ", 
+               SuperscriptBox["r", "2"]}]]}], ")"}], "l"]}], ")"}], "  ", 
+        "t"}], " ", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"ni", ",", "0", ",", "nt"}], "}"}]}], "]"}], " ", ",", "\n", 
+     RowBox[{"{", 
+      RowBox[{"nt", ",", "1", ",", "200"}], "}"}], ",", " ", 
+     RowBox[{"PlotRange", "\[Rule]", "Full"}], ",", " ", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<population size (nt)\>\"", ",", 
+        "\"\<(average social repertoire(rs))\>\""}], "}"}]}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "10000"}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"l", ",", "100"}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"r", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"b0", ",", "0.0001"}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"nc", ",", "5"}], "}"}]}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.926751496892311*^9, 3.926751497059309*^9}, {
+  3.92677917686043*^9, 3.9267792224028873`*^9}, {3.926780298262066*^9, 
+  3.926780300979866*^9}, {3.926780419133148*^9, 3.92678045558066*^9}, {
+  3.9277308100344505`*^9, 3.927730873015192*^9}, {3.927739014872429*^9, 
+  3.9277390881935463`*^9}, {3.927739123463236*^9, 3.927739169035698*^9}, {
+  3.927739203806158*^9, 3.9277392413950844`*^9}, {3.927739280363657*^9, 
+  3.9277393112101345`*^9}, {3.9277393598279533`*^9, 
+  3.9277393679779778`*^9}},ExpressionUUID->"547b0c9a-1ef5-439b-9c3d-\
+9d2ea89c1131"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`b0$$ = 0.0001, $CellContext`l$$ = 
+    100, $CellContext`nc$$ = 5, $CellContext`r$$ = 7, $CellContext`t$$ = 
+    10000, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`t$$], 10000, ControlType -> InputField}, {
+      Hold[$CellContext`l$$], 100, ControlType -> InputField}, {
+      Hold[$CellContext`r$$], 7, ControlType -> InputField}, {
+      Hold[$CellContext`b0$$], 0.0001, ControlType -> InputField}, {
+      Hold[$CellContext`nc$$], 5, ControlType -> InputField}}, 
+    Typeset`size$$ = {251.99999999999997`, {55., 57.62367851901027}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`b0$$ = 0.0001, $CellContext`l$$ = 
+        100, $CellContext`nc$$ = 5, $CellContext`r$$ = 7, $CellContext`t$$ = 
+        10000}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> DiscretePlot[
+        Sum[($CellContext`traitAbundDist[$CellContext`l$$, $CellContext`t$$, \
+$CellContext`nt, $CellContext`nc$$, $CellContext`b0$$, $CellContext`r$$, \
+$CellContext`ni]/Sum[
+           $CellContext`traitAbundDist[$CellContext`l$$, $CellContext`t$$, \
+$CellContext`nt, $CellContext`nc$$, $CellContext`b0$$, $CellContext`r$$, \
+$CellContext`ni], {$CellContext`ni, 0, $CellContext`nt}]) (
+          1 - (1 - $CellContext`ni (
+            1 + (-1 + $CellContext`nc$$) \
+$CellContext`ni/$CellContext`nt)/($CellContext`nc$$ $CellContext`nt \
+$CellContext`r$$^2))^$CellContext`l$$) $CellContext`t$$, {$CellContext`ni, 
+          0, $CellContext`nt}], {$CellContext`nt, 1, 200}, PlotRange -> Full, 
+        AxesLabel -> {
+         "population size (nt)", "(average social repertoire(rs))"}], 
+      "Specifications" :> {{$CellContext`t$$, 10000}, {$CellContext`l$$, 
+         100}, {$CellContext`r$$, 7}, {$CellContext`b0$$, 
+         0.0001}, {$CellContext`nc$$, 5}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{843., {77.88359375, 82.11640625}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.9267804567993946`*^9, 3.9267806451856136`*^9, {3.9277308068938274`*^9, 
+   3.927730879360483*^9}, {3.9277390338126984`*^9, 3.927739088849615*^9}, {
+   3.9277391272911606`*^9, 3.927739313194538*^9}},
+ CellLabel->
+  "Out[188]=",ExpressionUUID->"76a68f26-160b-7f44-a748-855bee47c9d6"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",ExpressionUUID->"1eaef394-5cf7-4ddd-bcfa-4f18a37fb775"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Manipulate", "[", 
+   RowBox[{
+    RowBox[{"DiscretePlot", "[", " ", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"weird", "!!"}], "!!"}], " ", 
+       RowBox[{"doesn", "'"}], "t", " ", "work", " ", "when", " ", "I", " ", 
+       "change", " ", "it", " ", "to", " ", "the", " ", "appropriate", " ", 
+       "function"}], "*)"}], "\n", 
+     RowBox[{
+      RowBox[{"Sum", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", " ", 
+          RowBox[{
+           RowBox[{"traitAbundDist", " ", "[", 
+            RowBox[{
+            "l", ",", "t", ",", "nt", ",", "nc", ",", "b0", ",", "r", ",", 
+             "ni"}], "]"}], "/", " ", 
+           RowBox[{"Sum", "[", 
+            RowBox[{
+             RowBox[{"traitAbundDist", " ", "[", 
+              RowBox[{
+              "l", ",", "t", ",", "nt", ",", "nc", ",", "b0", ",", "r", ",", 
+               "ni"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"ni", ",", "0", ",", "nt"}], "}"}]}], "]"}]}], ")"}], 
+         " ", 
+         RowBox[{"(", 
+          RowBox[{"1", "-", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"1", "-", 
+              FractionBox[
+               RowBox[{"ni", " ", 
+                RowBox[{"(", 
+                 RowBox[{"1", "+", 
+                  FractionBox[
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "+", "nc"}], ")"}], " ", "ni"}], 
+                   "nt"]}], ")"}]}], 
+               RowBox[{"nc", " ", "nt", " ", 
+                SuperscriptBox["r", "2"]}]]}], ")"}], "l"]}], ")"}], "  ", 
+         "t"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"ni", ",", "0", ",", "nt"}], "}"}]}], "]"}], " ", ",", "\n", 
+      RowBox[{"{", 
+       RowBox[{"nc", ",", "5", ",", "50"}], "}"}], ",", " ", 
+      RowBox[{"PlotRange", "\[Rule]", " ", "Full"}], ",", " ", 
+      RowBox[{"AxesLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<number of connections or degree (nc)\>\"", ",", 
+         "\"\<(average social repertoire(rs))\>\""}], "}"}]}]}], "]"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{"t", ",", "1000000"}], "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"l", ",", "100"}], "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"r", ",", "7"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"b0", ",", "0.01"}], "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"nt", ",", "200"}], "}"}]}], "\[IndentingNewLine]", "]"}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "the", " ", "effect", " ", "of", " ", "nc", " ", "depends", " ", "on", " ", 
+    RowBox[{"r", ".", " ", "It"}], " ", "depends", " ", "on", " ", "whether", 
+    " ", "we", " ", "are", " ", "on", " ", "the", " ", "side", " ", "of", " ",
+     "the", " ", "trait", " ", "distribution", " ", "when", " ", "all", " ", 
+    "traits", " ", "are", " ", "fixed", " ", "or", " ", "not"}], 
+   "*)"}]}]], "Input",
+ CellChangeTimes->{{3.926751485578745*^9, 3.926751485766248*^9}, {
+  3.926779586018738*^9, 3.9267795861987886`*^9}, {3.927739383993616*^9, 
+  3.927739388202713*^9}, {3.9277394267150135`*^9, 3.9277394394498005`*^9}, {
+  3.9277394739356403`*^9, 3.92773989446319*^9}},
+ CellLabel->
+  "In[222]:=",ExpressionUUID->"4d11927c-dce5-410d-b2e0-6bfcc5439c30"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`b0$$ = 0.01, $CellContext`l$$ = 
+    100, $CellContext`nt$$ = 200, $CellContext`r$$ = 7, $CellContext`t$$ = 
+    1000000, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`t$$], 1000000, ControlType -> InputField}, {
+      Hold[$CellContext`l$$], 100, ControlType -> InputField}, {
+      Hold[$CellContext`r$$], 7, ControlType -> InputField}, {
+      Hold[$CellContext`b0$$], 0.01, ControlType -> InputField}, {
+      Hold[$CellContext`nt$$], 200, ControlType -> InputField}}, 
+    Typeset`size$$ = {251.99999999999997`, {40., 41.77834570654264}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`b0$$ = 0.01, $CellContext`l$$ = 
+        100, $CellContext`nt$$ = 200, $CellContext`r$$ = 7, $CellContext`t$$ = 
+        1000000}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> DiscretePlot[
+        Sum[($CellContext`traitAbundDist[$CellContext`l$$, $CellContext`t$$, \
+$CellContext`nt$$, $CellContext`nc, $CellContext`b0$$, $CellContext`r$$, \
+$CellContext`ni]/Sum[
+           $CellContext`traitAbundDist[$CellContext`l$$, $CellContext`t$$, \
+$CellContext`nt$$, $CellContext`nc, $CellContext`b0$$, $CellContext`r$$, \
+$CellContext`ni], {$CellContext`ni, 0, $CellContext`nt$$}]) (
+          1 - (1 - $CellContext`ni (
+            1 + (-1 + $CellContext`nc) \
+$CellContext`ni/$CellContext`nt$$)/($CellContext`nc $CellContext`nt$$ \
+$CellContext`r$$^2))^$CellContext`l$$) $CellContext`t$$, {$CellContext`ni, 
+          0, $CellContext`nt$$}], {$CellContext`nc, 5, 50}, PlotRange -> Full,
+         AxesLabel -> {
+         "number of connections or degree (nc)", 
+          "(average social repertoire(rs))"}], 
+      "Specifications" :> {{$CellContext`t$$, 1000000}, {$CellContext`l$$, 
+         100}, {$CellContext`r$$, 7}, {$CellContext`b0$$, 
+         0.01}, {$CellContext`nt$$, 200}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{843., {61.88359375, 66.11640625}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.926779593565723*^9, {3.927739388874399*^9, 3.927739450170599*^9}, 
+   3.9277394835606766`*^9, {3.927739528922369*^9, 3.9277398095050488`*^9}, {
+   3.9277398821185417`*^9, 3.927739894994255*^9}},
+ CellLabel->
+  "Out[222]=",ExpressionUUID->"6c5e3df7-0aa7-aa4a-be6a-629c332dc901"]
+}, Open  ]],
+
+Cell[BoxData["\[AliasDelimiter]"], "Input",
+ CellChangeTimes->{
+  3.9277397316539135`*^9},ExpressionUUID->"40bdc833-6392-8743-8e56-\
+a231dd31bd94"],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", "\n", 
+    RowBox[{
+     RowBox[{"Sum", "[", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", " ", 
+         RowBox[{
+          RowBox[{"traitAbundDist", " ", "[", 
+           RowBox[{
+           "l", ",", "t", ",", "nt", ",", "nc", ",", "b0", ",", "r", ",", 
+            "ni"}], "]"}], "/", " ", 
+          RowBox[{"Sum", "[", " ", 
+           RowBox[{
+            RowBox[{"traitAbundDist", " ", "[", 
+             RowBox[{
+             "l", ",", "t", ",", "nt", ",", "nc", ",", "b0", ",", "r", ",", 
+              "ni"}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"ni", ",", "0", ",", "nt"}], "}"}]}], "]"}]}], ")"}], 
+        " ", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"1", "-", 
+             FractionBox[
+              RowBox[{"ni", " ", 
+               RowBox[{"(", 
+                RowBox[{"1", "+", 
+                 FractionBox[
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "+", "nc"}], ")"}], " ", "ni"}], 
+                  "nt"]}], ")"}]}], 
+              RowBox[{"nc", " ", "nt", " ", 
+               SuperscriptBox["r", "2"]}]]}], ")"}], "l"]}], ")"}], "  ", 
+        "t"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"ni", ",", "0", ",", "nt"}], "}"}]}], "]"}], " ", ",", "\n", 
+     RowBox[{"{", 
+      RowBox[{"b0", ",", "0.01", ",", ".2"}], "}"}], ",", " ", 
+     RowBox[{"PlotRange", "\[Rule]", " ", "Full"}], ",", " ", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Innovation rate (b0)\>\"", ",", 
+        "\"\<(average social repertoire(rs))\>\""}], "}"}]}]}], "]"}], ",", 
+   "\n", " ", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "10000"}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"l", ",", "100"}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"r", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"nt", ",", "200"}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"nc", ",", "5"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9267514806136723`*^9, 3.9267514809261703`*^9}, {
+  3.927739922132923*^9, 
+  3.927740035295431*^9}},ExpressionUUID->"f55903b4-c7f5-48bd-8285-\
+4fa4cc10d4a2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", " ", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+     "when", " ", "average", " ", "repertoire", " ", "size", " ", "is", " ", 
+      "smaller", " ", "than", " ", "1", " ", "it", " ", "gives", " ", 
+      "negative", " ", "numbers"}], "*)"}], "\n", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"r", ",", 
+       RowBox[{
+        RowBox[{"b0", " ", "l"}], " ", "+", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"1", "-", 
+           RowBox[{"b0", " ", 
+            RowBox[{"l", "/", "t"}]}]}], ")"}], 
+         RowBox[{"Sum", "[", " ", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", " ", 
+             RowBox[{
+              RowBox[{"traitAbundDist", " ", "[", 
+               RowBox[{
+               "l", ",", "t", ",", "nt", ",", "nc", ",", "b0", ",", "r", ",", 
+                "ni"}], "]"}], "/", " ", 
+              RowBox[{"Sum", "[", " ", 
+               RowBox[{
+                RowBox[{"traitAbundDist", " ", "[", 
+                 RowBox[{
+                 "l", ",", "t", ",", "nt", ",", "nc", ",", "b0", ",", "r", 
+                  ",", "ni"}], "]"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"ni", ",", "0", ",", "nt"}], "}"}]}], "]"}]}], ")"}],
+             " ", 
+            RowBox[{"(", 
+             RowBox[{"1", "-", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"1", "-", 
+                 FractionBox[
+                  RowBox[{"ni", " ", 
+                   RowBox[{"(", 
+                    RowBox[{"1", "+", 
+                    FractionBox[
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "+", "nc"}], ")"}], " ", "ni"}], 
+                    "nt"]}], ")"}]}], 
+                  RowBox[{"nc", " ", "nt", " ", 
+                   SuperscriptBox["r", "2"]}]]}], ")"}], "l"]}], ")"}], "  ", 
+            "t"}], ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"ni", ",", "0", ",", "nt"}], "}"}]}], "]"}]}]}]}], " ", 
+      "}"}], ",", "\n", 
+     RowBox[{"{", 
+      RowBox[{"r", ",", "3", ",", "10"}], "}"}], ",", " ", 
+     RowBox[{"PlotRange", "\[Rule]", " ", "Full"}], ",", " ", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<average repertoire size (r)\>\"", ",", 
+        "\"\<(average social repertoire(rs))\>\""}], "}"}]}]}], "]"}], ",", 
+   "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "1000"}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"l", ",", "100"}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"b0", ",", "0.01"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"nt", ",", "200"}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"nc", ",", "5"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9267514559053955`*^9, 3.926751472530025*^9}, {
+   3.9267516204269753`*^9, 3.926751623231716*^9}, {3.926753688451809*^9, 
+   3.926753688682823*^9}, {3.9267555472515354`*^9, 3.926755602391197*^9}, {
+   3.926755688642435*^9, 3.926755688704534*^9}, 3.926771167091713*^9, {
+   3.926771308335713*^9, 3.9267713386156483`*^9}, {3.926771421452732*^9, 
+   3.926771454801735*^9}, 3.926771521792498*^9, {3.9277384634818077`*^9, 
+   3.9277384636536655`*^9}, {3.9277400728383064`*^9, 3.927740112359333*^9}, {
+   3.9277401561743546`*^9, 3.92774016015856*^9}, {3.927740234505314*^9, 
+   3.9277403000884686`*^9}},ExpressionUUID->"fccfddab-2fc5-4af0-9c1c-\
+eaf13ae5e581"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`b0$$ = 0.01, $CellContext`l$$ = 
+    100, $CellContext`nc$$ = 5, $CellContext`nt$$ = 200, $CellContext`t$$ = 
+    1000, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`t$$], 1000, ControlType -> InputField}, {
+      Hold[$CellContext`l$$], 100, ControlType -> InputField}, {
+      Hold[$CellContext`b0$$], 0.01, ControlType -> InputField}, {
+      Hold[$CellContext`nt$$], 200, ControlType -> InputField}, {
+      Hold[$CellContext`nc$$], 5, ControlType -> InputField}}, 
+    Typeset`size$$ = {
+    36.946875000000006`, {0.9679687500000007, 6.1318359375}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`b0$$ = 0.01, $CellContext`l$$ = 
+        100, $CellContext`nc$$ = 5, $CellContext`nt$$ = 200, $CellContext`t$$ = 
+        1000}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Plot[{$CellContext`r, $CellContext`b0$$ $CellContext`l$$ + (
+           1 - $CellContext`b0$$ ($CellContext`l$$/$CellContext`t$$)) 
+          Sum[($CellContext`traitAbundDist[$CellContext`l$$, \
+$CellContext`t$$, $CellContext`nt$$, $CellContext`nc$$, $CellContext`b0$$, \
+$CellContext`r, $CellContext`ni]/Sum[
+              $CellContext`traitAbundDist[$CellContext`l$$, $CellContext`t$$, \
+$CellContext`nt$$, $CellContext`nc$$, $CellContext`b0$$, $CellContext`r, \
+$CellContext`ni], {$CellContext`ni, 0, $CellContext`nt$$}]) (
+             1 - (1 - $CellContext`ni (
+               1 + (-1 + $CellContext`nc$$) \
+$CellContext`ni/$CellContext`nt$$)/($CellContext`nc$$ $CellContext`nt$$ \
+$CellContext`r^2))^$CellContext`l$$) $CellContext`t$$, {$CellContext`ni, 
+             0, $CellContext`nt$$}]}, {$CellContext`r, 2, 10}, PlotRange -> 
+        Full, AxesLabel -> {
+         "average repertoire size (r)", "(average social repertoire(rs))"}], 
+      "Specifications" :> {{$CellContext`t$$, 1000}, {$CellContext`l$$, 
+         100}, {$CellContext`b0$$, 0.01}, {$CellContext`nt$$, 
+         200}, {$CellContext`nc$$, 5}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{843., {49.88359375, 54.11640625}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.927740237567631*^9, 3.9277402908082066`*^9}},
+ CellLabel->
+  "Out[233]=",ExpressionUUID->"48f33b85-d10a-574c-bbb8-1286ff5702c5"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "munfl", 
+   "\"\\!\\(\\*RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \
+\\\"1.707610127329846`*^308\\\"]}]\\) is too small to represent as a \
+normalized machine number; precision may be lost.\"", 2, 234, 77, 
+   30605053103884998294, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.927740297244734*^9},
+ CellLabel->"",ExpressionUUID->"4d12ac90-db05-f349-90e0-ac5091e97261"]
+}, Open  ]],
+
+Cell["\<\
+So far I have assumed a value for r and then calculated expected r which is \
+weird. Here I wanna write a function that updates the r each time and \
+calculate it again until it converges on some r.\
+\>", "Text",
+ CellChangeTimes->{{3.92675070256682*^9, 
+  3.926750755231447*^9}},ExpressionUUID->"c5e9b78b-b9ee-114c-8a8c-\
+f4dbbf402941"]
+}, Open  ]]
+},
+WindowSize->{950.4, 498.9},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification:>0.8 Inherited,
+FrontEndVersion->"14.0 for Microsoft Windows (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"baafd8e8-a37b-724a-986f-7e216d6b0e4c"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 220, 5, 30, "Subsection",ExpressionUUID->"207f9522-658a-2e41-8489-62c1d8b12c29"],
+Cell[803, 29, 2903, 84, 99, "Input",ExpressionUUID->"7a90bf1d-6c1b-3b49-89cb-73e7de0c821d"],
+Cell[CellGroupData[{
+Cell[3731, 117, 2822, 73, 155, "Input",ExpressionUUID->"2aa97670-3db7-184f-9476-092a163e58c9"],
+Cell[6556, 192, 3022, 56, 190, "Output",ExpressionUUID->"7bee8d1e-d851-f748-8872-8bc251aef1b2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9615, 253, 2765, 71, 149, "Input",ExpressionUUID->"028bf3b4-7b6e-427c-a7d6-f1ef27aa6e32"],
+Cell[12383, 326, 3133, 58, 176, "Output",ExpressionUUID->"e93fd988-9b45-7a49-9cbb-490655fbe535"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15553, 389, 2876, 73, 155, "Input",ExpressionUUID->"547b0c9a-1ef5-439b-9c3d-9d2ea89c1131"],
+Cell[18432, 464, 3180, 58, 174, "Output",ExpressionUUID->"76a68f26-160b-7f44-a748-855bee47c9d6"]
+}, Open  ]],
+Cell[21627, 525, 81, 0, 24, "Input",ExpressionUUID->"1eaef394-5cf7-4ddd-bcfa-4f18a37fb775"],
+Cell[CellGroupData[{
+Cell[21733, 529, 3342, 83, 134, "Input",ExpressionUUID->"4d11927c-dce5-410d-b2e0-6bfcc5439c30"],
+Cell[25078, 614, 3214, 59, 142, "Output",ExpressionUUID->"6c5e3df7-0aa7-aa4a-be6a-629c332dc901"]
+}, Open  ]],
+Cell[28307, 676, 147, 3, 24, "Input",ExpressionUUID->"40bdc833-6392-8743-8e56-a231dd31bd94"],
+Cell[28457, 681, 2339, 65, 120, "Input",ExpressionUUID->"f55903b4-c7f5-48bd-8285-4fa4cc10d4a2"],
+Cell[CellGroupData[{
+Cell[30821, 750, 3490, 86, 161, "Input",ExpressionUUID->"fccfddab-2fc5-4af0-9c1c-eaf13ae5e581"],
+Cell[34314, 838, 3191, 58, 118, "Output",ExpressionUUID->"48f33b85-d10a-574c-bbb8-1286ff5702c5"],
+Cell[37508, 898, 437, 9, 33, "Message",ExpressionUUID->"4d12ac90-db05-f349-90e0-ac5091e97261"]
+}, Open  ]],
+Cell[37960, 910, 347, 7, 23, "Text",ExpressionUUID->"c5e9b78b-b9ee-114c-8a8c-f4dbbf402941"]
+}, Open  ]]
+}
+]
+*)
+
